@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:playlist_app/presenter/song_list_presenter.dart';
+import 'package:playlist_app/presenter/song_list_presenter_impl.dart';
 import 'package:playlist_app/repository/song_list_repository.dart';
 import 'package:playlist_app/repository/song_repository_dummy_impl.dart';
 import 'package:playlist_app/models/song.dart';
 import 'package:playlist_app/ui/song_list_widget.dart';
 import 'package:playlist_app/ui/song_widget.dart';
 import 'package:playlist_app/ui/song_details_widget.dart';
+import 'package:provider/provider.dart';
 
 
 void main() {
   GetIt.instance.registerSingleton<SongListRepository>(SongRepositoryDummyImpl());
 
-  runApp(const MyApp());
+  runApp (ChangeNotifierProvider <SongListPresenter>(
+      create : ( context ) => SongListPresenterImpl () ,
+      child : const MyApp () )
+  ) ;
+
 }
 
 class MyApp extends StatelessWidget {
@@ -20,6 +27,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final songListPresenter = context.watch <SongListPresenter>() ;
+
 
     return MaterialApp(
       title: 'Creation de la playlist',

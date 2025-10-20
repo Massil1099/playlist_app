@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:playlist_app/presenter/song_list_presenter.dart';
+import 'package:provider/provider.dart';
 import '../repository/song_list_repository.dart';
 import 'song_widget.dart';
 
@@ -15,7 +17,9 @@ class _SongListWidgetState extends State <SongListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final songs = songListRepository.songs;
+    final songListPresenter = context .watch<SongListPresenter>() ;
+    final songs = songListPresenter.songs;
+
     return Scaffold(
         appBar:AppBar(title : const Text ('Compose your playlist')) ,
         body:Column (
@@ -25,11 +29,7 @@ class _SongListWidgetState extends State <SongListWidget> {
                   itemCount: songs.length,
                   itemBuilder: (BuildContext context, int index){
                     final song = songs[index];
-                    return SongWidget(song: song, onChanged:(value) {
-                      setState(() {
-                        song.isSelected = value ?? false;
-                      });
-                    });
+                    return SongWidget(song: song);
                   },
                 ),
             ),

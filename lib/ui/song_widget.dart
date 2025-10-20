@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:playlist_app/presenter/song_list_presenter.dart';
+import 'package:provider/provider.dart';
 import '../models/song.dart';
 
 class SongWidget extends StatelessWidget {
   final Song song;
-  final Function(bool?)? onChanged;
 
-  const SongWidget({super.key, required this.song, this.onChanged});
+  const SongWidget({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {
+    final songListPresenter = context.watch <SongListPresenter>() ;
+
     return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
@@ -31,9 +34,11 @@ class SongWidget extends StatelessWidget {
             const SizedBox(width: 16),
             Text(song.album),
             const SizedBox(width: 16),
-            Text(song.duration),
+            Text(song.duration), // pour l'instant c'est un string
             const SizedBox(width: 16),
-            Checkbox(value: song.isSelected, onChanged: onChanged)
+            Checkbox(value: song.isSelected, onChanged: (value){
+              songListPresenter.toggleSelection(song, value ?? false);
+            })
           ],
         )
     );

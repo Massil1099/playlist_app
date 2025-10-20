@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:playlist_app/presenter/song_list_presenter.dart';
+import 'package:provider/provider.dart';
 import '../models/song.dart';
 
 
@@ -6,7 +8,9 @@ class SongDetailsWidget extends StatelessWidget {
   const SongDetailsWidget ({super.key}) ;
   @override
   Widget build (BuildContext context) {
-    final song = ModalRoute.of(context)!.settings.arguments as Song ;
+    final song = ModalRoute.of(context)!.settings.arguments as Song;
+    final songListPresenter = context.watch < SongListPresenter >() ;
+
 
     return Scaffold(
       appBar :AppBar(
@@ -18,24 +22,36 @@ class SongDetailsWidget extends StatelessWidget {
         crossAxisAlignment : CrossAxisAlignment .start ,
         children : [
           TextFormField (
-            initialValue : song.title ,
-            decoration: const InputDecoration(labelText: 'Titre'),
+            initialValue : song.title,
+            onChanged : (text) {
+              songListPresenter.modifyTitle (song,text) ;
+            } ,
+            decoration: const InputDecoration(labelText: 'Title'),
           ),
 
           const SizedBox ( height : 16) ,
           TextFormField (
             initialValue : song.artist ,
-            decoration: const InputDecoration(labelText: 'Artiste'),
+            onChanged : (text) {
+              songListPresenter.modifyArtist (song,text) ;
+            } ,
+            decoration: const InputDecoration(labelText: 'Artist'),
           ),
 
           TextFormField (
-              initialValue : song.album ,
+            initialValue : song.album ,
+            onChanged : (text) {
+              songListPresenter.modifyAlbum (song,text) ;
+            } ,
             decoration: const InputDecoration(labelText: 'Album'),
           ),
 
           TextFormField (
-              initialValue : song.duration ,
-            decoration: const InputDecoration(labelText: 'Durée'),
+            initialValue : song.duration,
+            onChanged : (text) {
+              songListPresenter.modifyDuration (song,text) ;
+            } ,
+            decoration: const InputDecoration(labelText: 'Duration'),
           ),
 
         ] ,
