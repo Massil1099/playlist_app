@@ -34,7 +34,7 @@ class SongWidget extends StatelessWidget {
             const SizedBox(width: 16),
             Text(song.album),
             const SizedBox(width: 16),
-            Text(song.duration), // pour l'instant c'est un string
+            Text(song.formattedDuration), //la duree en format mm:ss
             const SizedBox(width: 16),
             Checkbox(value: song.isSelected, onChanged: (value){
               songListPresenter.toggleSelection(song, value ?? false);

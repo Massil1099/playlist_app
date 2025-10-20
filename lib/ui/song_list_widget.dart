@@ -35,7 +35,7 @@ class _SongListWidgetState extends State <SongListWidget> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Durée totale: 0:00'), // On ajoutera le calcul après
+              child: Text('Durée totale: ${songListPresenter.totalFormattedDuration}'),
             ),
 
             ElevatedButton (

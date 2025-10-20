@@ -6,7 +6,7 @@ import 'package:playlist_app/repository/song_list_repository.dart';
 class SongListPresenterImpl extends SongListPresenter {
 
   @override
-  List < Song > songs = GetIt . instance < SongListRepository >().songs ;
+  List <Song> songs = GetIt.instance < SongListRepository >().songs ;
 
   @override
   void modifyTitle ( Song song , String title ) {
@@ -25,7 +25,7 @@ class SongListPresenterImpl extends SongListPresenter {
   }
 
   @override
-  void modifyDuration ( Song song , String duration ) {
+  void modifyDuration(Song song, int duration) {
     song.duration= duration ;
     notifyListeners () ;
   }
@@ -33,5 +33,17 @@ class SongListPresenterImpl extends SongListPresenter {
   void toggleSelection(Song song, bool isSelected) {
     song.isSelected = isSelected;
     notifyListeners();
+  }
+
+  // Calcule la durée totale
+  @override
+  String get totalFormattedDuration {
+    final totalSeconds = songs
+        .where((s) => s.isSelected)
+        .fold<int>(0, (sum, song) => sum + song.duration);
+
+    final minutes = totalSeconds ~/ 60;
+    final seconds = totalSeconds % 60;
+    return '$minutes:${seconds.toString().padLeft(2, '0')}';
   }
 }

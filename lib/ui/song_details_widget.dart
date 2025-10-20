@@ -19,7 +19,7 @@ class SongDetailsWidget extends StatelessWidget {
     body : Padding(
       padding : const EdgeInsets .all (16.0) ,
       child : Column(
-        crossAxisAlignment : CrossAxisAlignment .start ,
+        crossAxisAlignment : CrossAxisAlignment.start ,
         children : [
           TextFormField (
             initialValue : song.title,
@@ -46,11 +46,14 @@ class SongDetailsWidget extends StatelessWidget {
             decoration: const InputDecoration(labelText: 'Album'),
           ),
 
-          TextFormField (
-            initialValue : song.duration,
-            onChanged : (text) {
-              songListPresenter.modifyDuration (song,text) ;
-            } ,
+          TextFormField(
+            initialValue: song.duration.toString(),
+            keyboardType: TextInputType.number,
+            onChanged: (text) {
+              final seconds = int.tryParse(text) ?? song.duration;
+              songListPresenter.modifyDuration(song, seconds);
+            },
+
             decoration: const InputDecoration(labelText: 'Duration'),
           ),
 
