@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:playlist_app/repository/song_repository.dart';
+import 'package:playlist_app/repository/song_list_repository.dart';
 import 'package:playlist_app/repository/song_repository_dummy_impl.dart';
 import 'package:playlist_app/models/song.dart';
 import 'package:playlist_app/ui/song_list_widget.dart';
 import 'package:playlist_app/ui/song_widget.dart';
+import 'package:playlist_app/ui/song_details_widget.dart';
+
+
 void main() {
-  GetIt.instance.registerSingleton<SongRepository>(SongRepositoryDummyImpl());
+  GetIt.instance.registerSingleton<SongListRepository>(SongRepositoryDummyImpl());
 
   runApp(const MyApp());
 }
@@ -38,7 +41,11 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-        home: const SongListWidget(),
+      initialRoute : '/liste',
+      routes : {
+        '/liste':(context) => const SongListWidget() ,
+        '/details':(context) => const SongDetailsWidget() ,
+      } ,
 
 
     );

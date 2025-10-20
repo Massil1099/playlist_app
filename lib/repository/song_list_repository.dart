@@ -1,5 +1,5 @@
 import '../models/song.dart';
 
-abstract class SongRepository{
+abstract class SongListRepository{
   abstract List<Song> songs;
 }

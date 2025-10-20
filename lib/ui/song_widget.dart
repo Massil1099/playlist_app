@@ -13,7 +13,18 @@ class SongWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Expanded(child: Text(song.title)), // prendra toute la largeur disponible
+            Expanded(child: GestureDetector(
+              onTap:() { Navigator.pushNamed (context,'/details', arguments:song);
+            },
+            child: Text(
+              song.title,
+              style: const TextStyle(
+                color: Colors.blue,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+            ),
+            ),
             const SizedBox(width: 16), // espace horizontal de 16 dp
 
             Text(song.artist),

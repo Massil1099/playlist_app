@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import '../repository/song_repository.dart';
+import '../repository/song_list_repository.dart';
 import 'song_widget.dart';
 
 class SongListWidget extends StatefulWidget {
@@ -11,13 +11,13 @@ class SongListWidget extends StatefulWidget {
 }
 
 class _SongListWidgetState extends State <SongListWidget> {
-  final songRepository = GetIt.instance <SongRepository>() ;
+  final songListRepository = GetIt.instance <SongListRepository>() ;
 
   @override
   Widget build(BuildContext context) {
-    final songs = songRepository.songs;
+    final songs = songListRepository.songs;
     return Scaffold(
-        appBar:AppBar(title : const Text ('List of the songs')) ,
+        appBar:AppBar(title : const Text ('Compose your playlist')) ,
         body:Column (
           children: [
             Expanded(
