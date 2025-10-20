@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:playlist_app/repository/song_repository.dart';
 import 'package:playlist_app/repository/song_repository_dummy_impl.dart';
 import 'package:playlist_app/models/song.dart';
+import 'package:playlist_app/ui/song_list_widget.dart';
 import 'package:playlist_app/ui/song_widget.dart';
 void main() {
   GetIt.instance.registerSingleton<SongRepository>(SongRepositoryDummyImpl());
@@ -16,11 +17,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final repo = GetIt.instance<SongRepository>();
-    final song = repo.songs.first; // juste la première chanson pour le test
 
     return MaterialApp(
-      title: 'Test Song Widget',
+      title: 'Creation de la playlist',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -39,12 +38,9 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Scaffold(
-        appBar: AppBar(title: const Text('SongWidget Test')),
-        body: Center(
-          child: SongWidget(song: song),
-        ),
-      ),
+        home: const SongListWidget(),
+
+
     );
   }
 }
