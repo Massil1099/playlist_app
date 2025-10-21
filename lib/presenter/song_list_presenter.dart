@@ -11,4 +11,8 @@ abstract class SongListPresenter extends ChangeNotifier {
   void toggleSelection ( Song song, bool isSelected ) ;
 
   String get totalFormattedDuration; // c'est un getter pas une methode
+
+  void sortByTitle();
+  void sortByArtist();
+  void sortByDuration();
 }

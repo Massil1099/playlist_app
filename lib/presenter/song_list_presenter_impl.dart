@@ -6,7 +6,7 @@ import 'package:playlist_app/repository/song_list_repository.dart';
 class SongListPresenterImpl extends SongListPresenter {
 
   @override
-  List <Song> songs = GetIt.instance < SongListRepository >().songs ;
+  List<Song> songs = GetIt.instance < SongListRepository >().songs ;
 
   @override
   void modifyTitle ( Song song , String title ) {
@@ -45,5 +45,20 @@ class SongListPresenterImpl extends SongListPresenter {
     final minutes = totalSeconds ~/ 60;
     final seconds = totalSeconds % 60;
     return '$minutes:${seconds.toString().padLeft(2, '0')}';
+  }
+
+  @override
+  void sortByTitle(){
+    songs.sort((a,b) => a.title.compareTo(b.title));
+    notifyListeners();
+
+  }
+  void sortByArtist(){
+    songs.sort((a,b) => a.artist.compareTo(b.artist));
+    notifyListeners();
+  }
+  void sortByDuration(){
+    songs.sort((a, b) => a.duration.compareTo(b.duration));
+    notifyListeners();
   }
 }
