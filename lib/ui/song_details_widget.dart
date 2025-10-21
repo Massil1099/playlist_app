@@ -56,6 +56,19 @@ class SongDetailsWidget extends StatelessWidget {
 
             decoration: const InputDecoration(labelText: 'Duration'),
           ),
+          // --- Image de la chanson ---
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                song.image,
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
 
         ] ,
       )

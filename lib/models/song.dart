@@ -2,14 +2,18 @@ class Song {
   String title;
   String artist;
   String album;
-  int duration; //duree en secondes
+  int duration;
   bool isSelected;
+  String image;
 
-  Song(this.title,
+  Song(
+      this.title,
       this.artist,
       this.album,
-      this.duration,
-      {this.isSelected=false});
+      this.duration, {
+        this.isSelected = false,
+        this.image = 'assets/songs_images/LetitbleedRS.jpg', // image par défaut
+      });
 
 
   String get formattedDuration {
