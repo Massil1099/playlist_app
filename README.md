@@ -3,11 +3,11 @@
 Playlist App:  My first Flutter project.
 
 Ce commit:
-feat: setup basic song list UI with repository and GetIt injection
+### Fonctionnalité : Création de la Playlist: 
+L’application permet maintenant de créer une playlist personnalisée à partir des chansons disponibles.
 
-- Created Song class to hold song data (title, artist, album, duration, isSelected)
-- Implemented SongRepository (abstract + dummy implementation)
-- Configured GetIt for repository injection
-- Created SongWidget to display each song with a checkbox
-- Created SongListWidget to display the list of songs from the repository
-- Added UI elements: title, artist, duration, checkbox, and placeholder for total duration
+### Étapes
+1. Sélectionnez plusieurs chansons dans l’écran principal (`SongListWidget`).
+2. Appuyez sur le bouton **“Let’s go”**.
+3. Vous serez redirigé vers un nouvel écran récapitulatif (`PlaylistSummaryWidget`).
+

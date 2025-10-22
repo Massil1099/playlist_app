@@ -8,7 +8,10 @@ class SongRepositoryDummyImpl implements SongListRepository {
     Song("Gimme shelter","Rolling stones","album2",270, image:'assets/songs_images/LetitbleedRS.jpg'),
     Song("Come together","The Beatles","album3",259, image:'assets/songs_images/LetitbleedRS.jpg'),
     Song("Have you ever seen the rain","CCR","album4",158, image:'assets/songs_images/LetitbleedRS.jpg'),
-    Song("Shape Of My Heart","Rolling stones","album5",279, image:'assets/songs_images/LetitbleedRS.jpg')
+    Song("Shape Of My Heart","Rolling stones","album5",279, image:'assets/songs_images/LetitbleedRS.jpg'),
+    Song("Cornflake Girl","Tori Amos","album6",305, image:'assets/songs_images/LetitbleedRS.jpg'),
+    Song("Master Blaster","Stevie Wonder","album7",289, image:'assets/songs_images/LetitbleedRS.jpg'),
+    Song("So Sorry","Feist","album8",192, image:'assets/songs_images/LetitbleedRS.jpg')
 
   ];
 }

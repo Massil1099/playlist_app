@@ -9,7 +9,7 @@ import 'package:playlist_app/ui/song_list_widget.dart';
 import 'package:playlist_app/ui/song_widget.dart';
 import 'package:playlist_app/ui/song_details_widget.dart';
 import 'package:provider/provider.dart';
-
+import 'package:playlist_app/ui/playlist_summary_widget.dart';
 
 void main() {
   GetIt.instance.registerSingleton<SongListRepository>(SongRepositoryDummyImpl());
@@ -52,8 +52,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute : '/liste',
       routes : {
-        '/liste':(context) => const SongListWidget() ,
-        '/details':(context) => const SongDetailsWidget() ,
+        '/liste':(context) => const SongListWidget(),
+        '/details':(context) => const SongDetailsWidget(),
+        "/playlist_summary": (context) => const PlaylistSummaryWidget()
       } ,
 
 

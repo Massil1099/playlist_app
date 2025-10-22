@@ -101,7 +101,11 @@ class _SongListWidgetState extends State <SongListWidget> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              onPressed: null,
+              onPressed: songListPresenter.songs.any((song) => song.isSelected)? ()
+              {
+                Navigator.pushNamed(context, '/playlist_summary');
+              }
+              : null,
               child: const Text("Let's go"),
             ),
           ),
