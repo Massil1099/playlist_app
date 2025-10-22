@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:playlist_app/presenter/song_list_presenter.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class PlaylistSummaryWidget extends StatelessWidget {
   const PlaylistSummaryWidget({super.key});
@@ -48,7 +49,8 @@ class PlaylistSummaryWidget extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-
+                  final textToShare = songListPresenter.buildSelectedSongsText();
+                  SharePlus.instance.share(ShareParams(text:textToShare));
                 },
                 child: const Text("Send to music app"),
               ),

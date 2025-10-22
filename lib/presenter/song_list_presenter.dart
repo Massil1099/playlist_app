@@ -15,4 +15,8 @@ abstract class SongListPresenter extends ChangeNotifier {
   void sortByTitle();
   void sortByArtist();
   void sortByDuration();
+
+
+
+  String buildSelectedSongsText();
 }

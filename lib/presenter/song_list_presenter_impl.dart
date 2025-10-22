@@ -30,6 +30,7 @@ class SongListPresenterImpl extends SongListPresenter {
     notifyListeners () ;
   }
 
+  @override
   void toggleSelection(Song song, bool isSelected) {
     song.isSelected = isSelected;
     notifyListeners();
@@ -51,14 +52,42 @@ class SongListPresenterImpl extends SongListPresenter {
   void sortByTitle(){
     songs.sort((a,b) => a.title.compareTo(b.title));
     notifyListeners();
-
   }
+
+  @override
   void sortByArtist(){
     songs.sort((a,b) => a.artist.compareTo(b.artist));
     notifyListeners();
   }
+
+  @override
   void sortByDuration(){
     songs.sort((a, b) => a.duration.compareTo(b.duration));
     notifyListeners();
+  }
+
+
+  @override
+  String buildSelectedSongsText(){
+    final selectedSongs = songs.where((s) => s.isSelected).toList();
+
+    if (selectedSongs.isEmpty){
+      return " No song selected.";
+    }
+
+    final buffer = StringBuffer();
+    buffer.writeln("Ma playlist :\n");
+
+    for (var song in selectedSongs) {
+      buffer.writeln(
+          "${song.title} - (${song.artist}) • ${song.formattedDuration}");
+    }
+
+      final total = totalFormattedDuration;
+      buffer.writeln("\nDurée totale : $total");
+
+      return buffer.toString();
+
+
   }
 }
