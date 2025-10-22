@@ -37,6 +37,7 @@ class SongDetailsWidget extends StatelessWidget {
             } ,
             decoration: const InputDecoration(labelText: 'Artist'),
           ),
+          const SizedBox ( height : 16) ,
 
           TextFormField (
             initialValue : song.album ,
@@ -45,6 +46,7 @@ class SongDetailsWidget extends StatelessWidget {
             } ,
             decoration: const InputDecoration(labelText: 'Album'),
           ),
+          const SizedBox ( height : 16) ,
 
           TextFormField(
             initialValue: song.duration.toString(),
@@ -56,14 +58,17 @@ class SongDetailsWidget extends StatelessWidget {
 
             decoration: const InputDecoration(labelText: 'Duration'),
           ),
+          const SizedBox ( height : 30) ,
+
           // --- Image de la chanson ---
+
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
                 song.image,
-                width: 200,
-                height: 200,
+                width: 250,
+                height: 250,
                 fit: BoxFit.cover,
               ),
             ),

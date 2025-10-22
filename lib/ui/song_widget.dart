@@ -10,37 +10,76 @@ class SongWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final songListPresenter = context.watch <SongListPresenter>() ;
+    final songListPresenter = context.watch<SongListPresenter>();
 
     return Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            Expanded(child: GestureDetector(
-              onTap:() { Navigator.pushNamed (context,'/details', arguments:song);
-            },
-            child: Text(
-              song.title,
-              style: const TextStyle(
-                color: Colors.blue,
-                decoration: TextDecoration.underline,
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              song.image,
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          const SizedBox(width: 12),
+
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/details', arguments: song);
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    song.title,
+                    style: const TextStyle(
+                      color: Colors.blueAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    song.artist,
+                    style: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 13,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
             ),
-            ),
-            ),
-            const SizedBox(width: 16), // espace horizontal de 16 dp
+          ),
 
-            Text(song.artist),
-            const SizedBox(width: 16),
-            Text(song.album),
-            const SizedBox(width: 16),
-            Text(song.formattedDuration), //la duree en format mm:ss
-            const SizedBox(width: 16),
-            Checkbox(value: song.isSelected, onChanged: (value){
+          const SizedBox(width: 8),
+
+          Text(
+            song.formattedDuration,
+            style: const TextStyle(
+              fontSize: 13,
+              color: Colors.grey,
+            ),
+          ),
+
+          const SizedBox(width: 8),
+
+          // ✅ Checkbox
+          Checkbox(
+            value: song.isSelected,
+            onChanged: (value) {
               songListPresenter.toggleSelection(song, value ?? false);
-            })
-          ],
-        )
+            },
+          ),
+        ],
+      ),
     );
   }
 }

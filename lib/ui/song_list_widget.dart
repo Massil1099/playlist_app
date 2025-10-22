@@ -25,9 +25,9 @@ class _SongListWidgetState extends State <SongListWidget> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Compose your playlist')),
+
       body: Column(
         children: [
-          // Row des boutons radio
           // Row des boutons radios
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
