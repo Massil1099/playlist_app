@@ -2,9 +2,12 @@
 
 Playlist App:  My first Flutter project.
 
-Ce commit:
+## Ce commit fait suite au commit precedent:
+- Ajout des labels (Padding) Sort by: , et Songs:
 
-## Fonctionnalité : Affichage amelioré de la liste des chansons
+## Rappel commit precedent:
+
+### Fonctionnalité : Affichage amelioré de la liste des chansons
 
 - Ajout d'une **image miniature** (50x50, arrondie) à gauche de chaque chanson.
 - Le **titre de la chanson** est affiché en **bleu et en gras**.
