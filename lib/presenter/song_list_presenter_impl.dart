@@ -9,25 +9,25 @@ class SongListPresenterImpl extends SongListPresenter {
   List<Song> songs = GetIt.instance < SongListRepository >().songs ;
 
   @override
-  void modifyTitle ( Song song , String title ) {
+  void modifyTitle(Song song , String title ) {
    song.title= title ;
     notifyListeners() ;
   }
   @override
-  void modifyArtist ( Song song , String artist ) {
+  void modifyArtist(Song song , String artist ) {
     song.artist = artist ;
     notifyListeners() ;
   }
   @override
-  void modifyAlbum ( Song song , String album ) {
+  void modifyAlbum(Song song , String album ) {
     song.album = album ;
-    notifyListeners () ;
+    notifyListeners() ;
   }
 
   @override
   void modifyDuration(Song song, int duration) {
     song.duration= duration ;
-    notifyListeners () ;
+    notifyListeners() ;
   }
 
   @override

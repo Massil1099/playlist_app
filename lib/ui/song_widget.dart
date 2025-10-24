@@ -71,7 +71,7 @@ class SongWidget extends StatelessWidget {
 
           const SizedBox(width: 8),
 
-          // ✅ Checkbox
+          // Checkbox
           Checkbox(
             value: song.isSelected,
             onChanged: (value) {

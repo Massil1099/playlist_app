@@ -17,7 +17,7 @@ class SongDetailsWidget extends StatelessWidget {
         title :Text(song.title),
     ) ,
     body : Padding(
-      padding : const EdgeInsets .all (16.0) ,
+      padding : const EdgeInsets.all (16.0) ,
       child : Column(
         crossAxisAlignment : CrossAxisAlignment.start ,
         children : [
@@ -29,7 +29,7 @@ class SongDetailsWidget extends StatelessWidget {
             decoration: const InputDecoration(labelText: 'Title'),
           ),
 
-          const SizedBox ( height : 16) ,
+          const SizedBox (height: 16) ,
           TextFormField (
             initialValue : song.artist ,
             onChanged : (text) {
@@ -37,7 +37,7 @@ class SongDetailsWidget extends StatelessWidget {
             } ,
             decoration: const InputDecoration(labelText: 'Artist'),
           ),
-          const SizedBox ( height : 16) ,
+          const SizedBox (height: 16) ,
 
           TextFormField (
             initialValue : song.album ,
@@ -46,7 +46,7 @@ class SongDetailsWidget extends StatelessWidget {
             } ,
             decoration: const InputDecoration(labelText: 'Album'),
           ),
-          const SizedBox ( height : 16) ,
+          const SizedBox (height : 16) ,
 
           TextFormField(
             initialValue: song.duration.toString(),
@@ -58,7 +58,7 @@ class SongDetailsWidget extends StatelessWidget {
 
             decoration: const InputDecoration(labelText: 'Duration'),
           ),
-          const SizedBox ( height : 30) ,
+          const SizedBox (height : 30) ,
 
           // --- Image de la chanson ---
 
